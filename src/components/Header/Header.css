@@ -1,0 +1,66 @@
+* {
+    margin:0;
+    padding:0;
+    font:12pt Arial;
+}
+
+li{
+    list-style-type: none;
+}
+
+.logo {
+    width: 200px;
+}
+
+
+header div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2.7% 5.5%;
+    align-items: center;
+}
+
+.arriba {
+    font-size: 20px;
+    color: aliceblue;
+}
+
+.inicio {
+    color: white;
+    text-decoration: none;
+    transition: color .2s; 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.inicio:hover {
+    color: rgb(64, 64, 64);
+}
+.inicio li {
+    padding-left: 20px;
+}
+.buscador {
+    padding: 15px;
+    padding-right: 200px;
+    background-color: rgb(21, 21, 21);
+    color: rgb(255, 254, 254);
+    border: rgb(21, 21, 21);
+}
+
+.bordelupa {
+    padding: 15px;
+    background-color: rgb(21, 21, 21);
+    color: rgb(255, 254, 254);
+    border: hidden;
+}
+
+.lupa {
+    height: 15px;
+    width: 15px;
+}
+body {
+    background-color: black;
+    }

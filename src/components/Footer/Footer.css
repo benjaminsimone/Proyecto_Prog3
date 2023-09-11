@@ -1,0 +1,21 @@
+h4 {
+    color: rgb(186, 186, 186);
+    text-align: center;
+}
+
+.logofooter {
+    
+    width: 13.8%;
+    display: block;
+    padding-top: 2%;
+    margin: auto;
+	display:block;
+}
+
+.paddingtopfooter {
+    padding-top: 1%;
+}
+
+.paddingbottomfooter {
+    padding-bottom: 2.7%;
+}
