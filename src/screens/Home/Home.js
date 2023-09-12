@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import Card from "../../components/Card/Card";
 import './Home.css'
+import Filtro from '../Filtro/Filtro';
 
 
 class Home extends Component {
@@ -24,9 +25,31 @@ class Home extends Component {
         .catch(e=> console.log(e))
 
     }
+
+    filtrarPeliculas(peliculaAFiltrar){
+        let peliculasFiltradas = this.state.populares.filter(function(unaPelicula){
+             return peliculaAFiltrar.includes(unaPelicula.title)
+        })
+
+        this.setState({
+            populares: peliculasFiltradas
+        })
+    }
+
     render(){
         return(
             <React.Fragment>
+            
+            <section>
+
+            <Filtro filtrar={(texto) => this.filtrarPeliculas(texto)}/>
+            {/* {
+                this.state.populares.map(function(unaPelicula){
+                    return <Card key={unaPelicula.id} datosPelicula={unaPelicula}/>
+                }) 
+            } */}
+
+            </section>
             
             <h2 className="titulos">HOME</h2>
 
