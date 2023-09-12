@@ -10,7 +10,7 @@ class Card extends Component {
     }
     mostrar_descripcion(){
         this.setState({
-            ver_mas:this.state.ver_mas
+            ver_mas:!this.state.ver_mas
         })
     }
 
@@ -18,9 +18,12 @@ class Card extends Component {
         return(
             <div>
             <li className="peliculas">
-            <img src={this.props.movie.poster_path} className="peliculas"/>
-            <h4>${this.props.movie.title}</h4>
-            <h5>${this.props.movie.release_date}</h5>    
+            <img src={`https://image.tmdb.org/t/p/w500${this.props.movie.poster_path}`} className="peliculas" alt="Imagen cartelera"/>
+            <h4>{this.props.movie.title}</h4>
+            <h5>{this.props.movie.release_date}</h5>
+            <h5 >{this.state.ver_mas ? this.state.descripcion : ''} </h5>
+            <h5 onClick={()=>this.mostrar_descripcion()}>{this.state.ver_mas?'No mostrar':'Ver más'}</h5>
+            
             </li>
             </div>
 
