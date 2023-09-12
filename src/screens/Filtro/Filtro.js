@@ -25,9 +25,9 @@ class Filtro extends Component{
     render(){ 
         return(
             <form action="" method='GET' onSubmit={(evento) => this.controlEnvio(evento)}>
-                <label htmlFor=''>Pelicula o Serie a filtrar</label>
+                <label htmlFor=''> Pelicula o Serie a filtrar </label>
                 <input type='text' name='filtro' onChange={(eventoInput) => this.almacenarInput(eventoInput)} value={this.state.valorIngresado}></input>
-                <button type='submit'>Filtrar </button>
+                <button type='submit'> Buscar </button>
             </form>
         )
     }
