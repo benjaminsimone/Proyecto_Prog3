@@ -41,16 +41,6 @@ class Home extends Component {
         return(
             <React.Fragment>
             
-            <section>
-
-            <Filtro filtrar={(texto) => this.filtrarPeliculas(texto)}/>
-            {/* {
-                this.state.populares.map(function(unaPelicula){
-                    return <Card key={unaPelicula.id} datosPelicula={unaPelicula}/>
-                }) 
-            } */}
-
-            </section>
             
             <h2 className="titulos">HOME</h2>
 

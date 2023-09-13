@@ -23,7 +23,7 @@ function Header (){
                 </form>
             </section>
 
-       <button className="botonDark">Aclarar fondo</button>         
+               
 
        
             <nav>

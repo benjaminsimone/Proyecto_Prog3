@@ -30,13 +30,13 @@ class VerPopulares extends Component{
     render(){
         return(
             <React.Fragment>
-                <Filtro filtrar={(texto) => this.filtrarPeliculas(texto)}/>
+                
             {/* {
                 this.state.populares.map(function(unaPelicula){
                     return <Card key={unaPelicula.id} datosPelicula={unaPelicula}/>
                 }) 
             } */}
-            <h1 className="ultimo">Peliculas populares</h1> 
+            <h1 className="ultimo">Peliculas populares</h1>  <Filtro filtrar={(texto) => this.filtrarPeliculas(texto)}/>
             <section className="imagen">
                 {this.state.populares.length > 0 ?(
                 this.state.populares.slice(0,20).map((movie)=><Card movie={movie}/>)

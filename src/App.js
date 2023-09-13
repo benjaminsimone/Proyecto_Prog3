@@ -6,7 +6,7 @@ import Home from "./screens/Home/Home"
 import Detail from "./screens/Detail/Detail";
 import VerPopulares from "./screens/VerTodas/VerPopulares"
 import VerTop_Rated from "./screens/VerTodas/VerTop_Rated"
-
+import ResultadoBusqueda from "./screens/ResultadoBusqueda/ResultadoBusqueda";
 
 
 function App() {
@@ -20,8 +20,8 @@ function App() {
             <Route path="/detalle/:id" component={Detail}></Route>
             <Route path="/VerPopulares" component={VerPopulares}></Route>
             <Route path="/VerTop_Rated" component={VerTop_Rated}></Route>
-
-
+            <Route path="/resultadoBusqueda/" component={ResultadoBusqueda}></Route>
+            
 
           </Switch>
         </main>
