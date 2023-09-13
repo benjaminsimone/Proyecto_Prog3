@@ -1,10 +1,10 @@
 import Detail from "../Detail";
 
 function ScreenMovie (props) {
-    let id = props.id
+    
     return(
         <section>
-            <Detail id = {id} /> 
+            <Detail key_id = {props} /> 
         </section>
     )
 }

@@ -18,8 +18,8 @@ class Card extends Component {
     }
 
     render(){
+        
         return(
-
             <div>
             <li className="peliculas">
             <img src={`https://image.tmdb.org/t/p/w500${this.props.movie.poster_path}`} className="peliculas" alt="Imagen cartelera"/>
@@ -33,6 +33,7 @@ class Card extends Component {
             </div>
 
         )
+        
     }
 }
 
