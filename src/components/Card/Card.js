@@ -1,4 +1,7 @@
 import React,{Component} from "react";
+import {Link} from "react-router-dom"
+import "./Card.css"
+import ScreenMovie from "../../screens/Detail/ScreenMovie/ScreenMovie";
 
 class Card extends Component {
     constructor(props){
@@ -16,6 +19,7 @@ class Card extends Component {
 
     render(){
         return(
+
             <div>
             <li className="peliculas">
             <img src={`https://image.tmdb.org/t/p/w500${this.props.movie.poster_path}`} className="peliculas" alt="Imagen cartelera"/>
@@ -23,10 +27,10 @@ class Card extends Component {
             <h5>{this.props.movie.release_date}</h5>
             <h5 >{this.state.ver_mas ? this.state.descripcion : ''} </h5>
             <h5 onClick={()=>this.mostrar_descripcion()}>{this.state.ver_mas?'No mostrar':'Ver más'}</h5>
-            
+            <Link to= {`/detalle/id/${this.props.movie.id}`} className="detalle"> Ir a Detalle </Link> 
+            <ScreenMovie id = {this.props.movie.id}/>
             </li>
             </div>
-
 
         )
     }
