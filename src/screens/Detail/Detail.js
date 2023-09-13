@@ -9,15 +9,16 @@ class Detail extends Component {
             detailMovie: []
         }
     }
-    componentDidMount() {
 
-        fetch(`https://api.themoviedb.org/3/movie/${this.props}?api_key=ac76fd343a62a48054382d87b2a93a32`)
-            .then(res => res.json())
-            .then(data => this.setState(
-                {detailMovie: data}))
-            .catch(e => console.log(e))
+    // componentDidMount() {
+    //     // const id = props.match.params.id
+    //     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=ac76fd343a62a48054382d87b2a93a32`)
+    //         .then(res => res.json())
+    //         .then(data => this.setState(
+    //             {detailMovie: data}))
+    //         .catch(e => console.log(e))
             
-    }
+    // }
     render(){ 
         return(<p> Mundo </p>)
     }

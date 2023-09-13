@@ -4,6 +4,9 @@ import Header from './components/Header/Header'
 import Footer from "./components/Footer/Footer";
 import Home from "./screens/Home/Home"
 import Detail from "./screens/Detail/Detail";
+import VerPopulares from "./screens/VerTodas/VerPopulares"
+import VerTop_Rated from "./screens/VerTodas/VerTop_Rated"
+
 
 
 function App() {
@@ -14,7 +17,11 @@ function App() {
           <Switch>
 
             <Route path="/" exact={true} component={Home}></Route>
-            <Route path="/detalle/id/:id" component={Detail}></Route>
+            <Route path="/detalle/:id" component={Detail}></Route>
+            <Route path="/VerPopulares" component={VerPopulares}></Route>
+            <Route path="/VerTop_Rated" component={VerTop_Rated}></Route>
+
+
 
           </Switch>
         </main>

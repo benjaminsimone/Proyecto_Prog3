@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import Card from "../../components/Card/Card";
 import './Home.css'
 import Filtro from '../Filtro/Filtro';
+import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 
 class Home extends Component {
@@ -53,7 +54,7 @@ class Home extends Component {
             
             <h2 className="titulos">HOME</h2>
 
-            <h2 className="ultimo">Peliculas populares</h2>
+            <h2 className="ultimo">Peliculas populares</h2> <Link to="/VerPopulares"> Ver más</Link>
             <section className="imagen">
                 {this.state.populares.length > 0 ?(
                 this.state.populares.slice(0,4).map((movie)=><Card movie={movie}/>)
@@ -62,7 +63,7 @@ class Home extends Component {
             )}
             </section>
 
-            <h2 class="ultimo">Peliculas mas valoradas</h2>
+            <h2 class="ultimo">Peliculas mas valoradas</h2> <Link to="/VerTop_Rated"> Ver más</Link>
             <section className="imagen">
                 {this.state.top_rated.length > 0 ?(
                 this.state.top_rated.slice(0,4).map((movie)=><Card movie={movie}/>)

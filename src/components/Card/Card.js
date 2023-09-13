@@ -1,8 +1,6 @@
 import React,{Component} from "react";
 import {Link} from "react-router-dom"
 import "./Card.css"
-import ScreenMovie from "../../screens/Detail/ScreenMovie/ScreenMovie";
-
 class Card extends Component {
     constructor(props){
         super(props);
@@ -10,6 +8,8 @@ class Card extends Component {
             ver_mas: false,
             descripcion: props.movie.overview
         }
+        console.log(this.props.movie.id)
+
     }
     mostrar_descripcion(){
         this.setState({
@@ -27,8 +27,7 @@ class Card extends Component {
             <h5>{this.props.movie.release_date}</h5>
             <h5 >{this.state.ver_mas ? this.state.descripcion : ''} </h5>
             <h5 onClick={()=>this.mostrar_descripcion()}>{this.state.ver_mas?'No mostrar':'Ver más'}</h5>
-            <Link to= {`/detalle/id/${this.props.movie.id}`} className="detalle"> Ir a Detalle </Link> 
-            <ScreenMovie id = {this.props.movie.id}/>
+            <Link to= {`/detalle/${this.props.movie.id}`} className="detalle"> Ir a Detalle </Link> 
             </li>
             </div>
 
