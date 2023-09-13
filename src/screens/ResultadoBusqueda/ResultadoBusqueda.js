@@ -1,33 +1,38 @@
 import Card from "../../components/Card/Card"
 import Filtro from "../Filtro/Filtro"
 import React, { Component } from "react"
+import { Link } from "react-router-dom/cjs/react-router-dom.min"
 
-class ResultadoBusqueda extends Component { 
+class ResultadoBusqueda extends Component {
 
-    constructor(props) { 
+    constructor(props) {
         super(props)
-        this.state = { 
-            resultados : []
+        this.state = {
+            resultadosTotales: []
         }
 
     }
-        
+
     componentDidMount() {
 
-        fetch(`https://api.themoviedb.org/3/search/movie?query=${this.props.match.params.search}&api_key=ac76fd343a62a48054382d87b2a93a32`)
+        fetch('https://api.themoviedb.org/3/movie/popular?api_key=ac76fd343a62a48054382d87b2a93a32')
             .then(res => res.json())
-            .then(data => this.setState(
-                { resultados: data.results }))
+            .then(data => this.setState({ resultadosTotales: data.results }))
             .catch(e => console.log(e))
-            console.log(this.state.resultados);
 
+        fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=ac76fd343a62a48054382d87b2a93a32')
+            .then(res => res.json())
+            .then(data => this.setState({ resultadosTotales: data.results }))
+            .catch(e => console.log(e))
     }
-    render(){
-        console.log(this.state.resultados)
-        return(
+    render() {
+        console.log(this.state.resultadosTotales)
+        return (
             <React.Fragment>
+
                 <h1> Resultado de busqueda </h1>
                 <h2> Peliculas </h2>
+                <Link to={`/resultadoBusqueda/${this.state.resultadosTotales}`} className="detalle"> </Link>
                 
             </React.Fragment>
         )

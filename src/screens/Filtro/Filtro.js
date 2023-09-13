@@ -28,13 +28,10 @@ class Filtro extends Component{
         return(
             <form action="" method='GET' onSubmit={(evento) => this.controlEnvio(evento)}>
                 <input type='text' name='filtro' onChange={(eventoInput) => this.almacenarInput(eventoInput)} value={this.state.valorIngresado}></input>
-                
                 <Link to= {`/resultadoBusqueda/${this.state.valorIngresado}`} className="detalle"> <button type='submit'> Buscar </button> </Link> 
-
             </form>
         )
     }
-
 }
 
 
