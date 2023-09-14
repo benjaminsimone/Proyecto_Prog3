@@ -46,9 +46,12 @@ class Home extends Component {
 
             <h2 className="ultimo">Peliculas populares</h2> <Link to="/VerPopulares"> Ver más </Link>
             <section className="imagen">
+
+                
                 {this.state.populares.length > 0 ?(
                 this.state.populares.slice(0,4).map((movie)=><Card movie={movie}/>)
             ):(
+                <img src='/Users/benjamin/Documents/UdeSA/PROG III/Programacion 3/ProyectoInt/public/img/Loading.gif'/>,
                 <p className='cargando'>Cargando...</p>
             )}
             </section>

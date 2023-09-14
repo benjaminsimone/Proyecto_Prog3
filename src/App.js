@@ -23,7 +23,6 @@ function App() {
             <Route path="/VerTop_Rated" component={VerTop_Rated}></Route>
             <Route path="/resultadoBusqueda/" component={ResultadoBusqueda}></Route>
             <Route path="" component={Error404}></Route>
-            
 
           </Switch>
         </main>

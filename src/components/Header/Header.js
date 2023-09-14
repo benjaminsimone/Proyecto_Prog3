@@ -24,8 +24,9 @@ function Header (){
             <nav>
                 <ul className="inicio"> {/*completar con el link correspondiente pero de top rated y populares en vez de favoritos y generos */}
                     <li><a className="inicio" href="/">HOME</a></li>
-                     <li><a className="inicio" href="./favoritos.html">FAVORITOS</a></li> {/*completar con el link correspondiente */}
-                    <li><a className="inicio" href="./generos.html">GENEROS</a></li> {/*completar con el link correspondiente */}
+                    <li><a className="inicio" href="./favoritos.html">FAVORITOS</a></li> {/*completar con el link correspondiente */}
+                    <li><a className="inicio" href="/VerTop_Rated">TOP RATED</a></li> {/*completar con el link correspondiente */}
+                    <li><a className="inicio" href="/VerPopulares">MAS POPULARES</a></li> {/*completar con el link correspondiente */}
                 </ul>
             </nav>
             
