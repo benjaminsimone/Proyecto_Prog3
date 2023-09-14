@@ -20,15 +20,18 @@ class Detail extends Component {
 
     }
     render() {
- 
+            console.log(this.state.detailMovie)
         return (
-        
+            
             <React.Fragment>
 
                 <img src={`https://image.tmdb.org/t/p/w500${this.state.detailMovie.poster_path}`} className="peliculas" alt="Imagen cartelera"/>
-                <h2>Release Date: {this.state.detailMovie.release_date}</h2>
-                <h2>Vote Average: {this.state.detailMovie.vote_average}</h2>
-                <h2> Descripcion: {this.state.detailMovie.overview}</h2>
+                <h1> {this.state.detailMovie.title} </h1>
+                <h2> Estreno : {this.state.detailMovie.release_date}</h2>
+                <h2> Rating: {this.state.detailMovie.vote_average}</h2>
+                <h2> {this.state.detailMovie.overview}</h2>
+                <h2> Duracion : {this.state.detailMovie.runtime} mins </h2> 
+                <h2>  {this.state.detailMovie.runtime}  </h2>
 
             </React.Fragment>
 
