@@ -2,39 +2,43 @@ import React from "react";
 import './Header.css'
 import { Link } from 'react-router-dom';
 import ResultadoBusqueda from "../../screens/ResultadoBusqueda/ResultadoBusqueda";
+import Formulario from "../Formulario/Formularios";
 
 
-function Header (){
-    return(
+function Header() {
+    return (
         <header>
-    <section>
-       
-        <div>
-            <a href="/"><img src="./img/logo.png" alt="LogoDHMovies" className="logo"/></a>
+            <section>
 
-            <section className="barra">
-                <form>
-                    <input type="text" id="input" placeholder="Buscar en DH Movies" className="buscador" name = "search" value = ""/> {/*completar con el link correspondiente */}
-                    <button path="."type="submit" id="search" className="bordelupa">
-                        <img src="./img/lupa.png" alt="" className="lupa"/>
-                    </button>
-                </form>
+                <div>
+                    <a href="/"><img src="./img/logo.png" alt="LogoDHMovies" className="logo" /></a>
+
+                    <section className="barra">
+
+                        <Formulario />
+
+                    </section>
+
+                    <nav>
+
+                        <ul className="inicio">
+
+                            <li><Link to="/" className="inicio"> HOME </Link></li>
+
+                            <li><Link to="/Favoritos" className="inicio"> FAVORITOS </Link></li>
+                            <li><Link to="/VerTop_Rated" className="inicio"> TOP RATED </Link></li>
+                            <li><Link to="/VerPopulares" className="inicio"> MAS POPULARES </Link></li>
+                            
+                        </ul>
+
+                    </nav>
+
+                    <section className="imagen"></section>
+                </div>
             </section>
 
-            <nav>
-                <ul className="inicio"> {/*completar con el link correspondiente pero de top rated y populares en vez de favoritos y generos */}
-                    <li><a className="inicio" href="/">HOME</a></li>
-                    <li><a className="inicio" href="./favoritos.html">FAVORITOS</a></li> {/*completar con el link correspondiente */}
-                    <li><a className="inicio" href="/VerTop_Rated">TOP RATED</a></li> {/*completar con el link correspondiente */}
-                    <li><a className="inicio" href="/VerPopulares">MAS POPULARES</a></li> {/*completar con el link correspondiente */}
-                </ul>
-            </nav>
-            
-        </div>
-    </section>
 
-
-</header>
+        </header>
     )
 }
 

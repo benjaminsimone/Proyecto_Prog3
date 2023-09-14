@@ -8,6 +8,7 @@ import VerPopulares from "./screens/VerTodas/VerPopulares"
 import VerTop_Rated from "./screens/VerTodas/VerTop_Rated"
 import ResultadoBusqueda from "./screens/ResultadoBusqueda/ResultadoBusqueda";
 import Error404 from "./screens/Error404/Error404";
+import Favoritos from "./screens/Favoritos/Favoritos";
 
 
 function App() {
@@ -21,8 +22,11 @@ function App() {
             <Route path="/detalle/:id" component={Detail}></Route>
             <Route path="/VerPopulares" component={VerPopulares}></Route>
             <Route path="/VerTop_Rated" component={VerTop_Rated}></Route>
-            <Route path="/resultadoBusqueda/" component={ResultadoBusqueda}></Route>
+            <Route path="/Favoritos" component={Favoritos}></Route> 
+            <Route path="/resultadoBusqueda/:search" component={ResultadoBusqueda}></Route>
             <Route path="" component={Error404}></Route>
+            
+
 
           </Switch>
         </main>
