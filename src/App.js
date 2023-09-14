@@ -7,6 +7,7 @@ import Detail from "./screens/Detail/Detail";
 import VerPopulares from "./screens/VerTodas/VerPopulares"
 import VerTop_Rated from "./screens/VerTodas/VerTop_Rated"
 import ResultadoBusqueda from "./screens/ResultadoBusqueda/ResultadoBusqueda";
+import Error404 from "./screens/Error404/Error404";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/VerPopulares" component={VerPopulares}></Route>
             <Route path="/VerTop_Rated" component={VerTop_Rated}></Route>
             <Route path="/resultadoBusqueda/" component={ResultadoBusqueda}></Route>
+            <Route path="" component={Error404}></Route>
             
 
           </Switch>

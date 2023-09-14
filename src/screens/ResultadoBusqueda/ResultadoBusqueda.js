@@ -29,11 +29,18 @@ class ResultadoBusqueda extends Component {
         console.log(this.state.resultadosTotales)
         return (
             <React.Fragment>
-
+                {
+    this.state.resultadosTotales.length !== 0 ?
+            <React.Fragment>
                 <h1> Resultado de busqueda </h1>
                 <h2> Peliculas </h2>
-                <Link to={`/resultadoBusqueda/${this.state.resultadosTotales}`} className="detalle"> </Link>
-                
+            <Link to={`/resultadoBusqueda/${this.state.resultadosTotales}`} className="detalle"> </Link>
+            
+            </React.Fragment>
+    :
+    <h1>No se encontraron resultados</h1>
+                }
+            
             </React.Fragment>
         )
     }
