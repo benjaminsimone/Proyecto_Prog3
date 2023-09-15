@@ -15,26 +15,26 @@ class Favoritos extends Component {
         let recuperarStorage = localStorage.getItem('favoritos')
         if (recuperarStorage !== null) {
             favoritos = JSON.parse(recuperarStorage)
-        }
-        favoritos.map((id) => {
+            let listaPeliculas = []
+        
+            favoritos.forEach((id) => {
             
-            fetch(`https://api.themoviedb.org/3/movie/top_rated?${id}api_key=ac76fd343a62a48054382d87b2a93a32`)
-                .then((response) => response.json())
-                .then((arrayFavoritos) => {
-                    let listaFavs = this.state.arrayFavoritos;
-                    listaFavs.push(arrayFavoritos);
-                    this.setState({ arrayFavoritos: listaFavs })
-                })
-                .catch((error) => console.log(error))
-
-            return true
-        })
+                fetch(`https://api.themoviedb.org/3/movie/top_rated?${id}api_key=ac76fd343a62a48054382d87b2a93a32`)
+                    .then((response) => response.json())
+                    .then((favoritos) => {
+                        listaPeliculas.push(favoritos)
+                        this.setState({ arrayFavoritos: listaPeliculas })
+                    })
+                    .catch((error) => console.log(error))
+            })
+        
+        }
+        
 
     }
 
     render() {
         return (
-            <section>
                 <React.Fragment>
 
                     <h1>Tus Favoritos</h1>
@@ -45,18 +45,17 @@ class Favoritos extends Component {
                         :
                         <>
                             {
-                                <React.Fragment>
+                                <section>
 
                                     {this.state.arrayFavoritos.map((PeliculaFavorita, idx) => <Card key={PeliculaFavorita + idx} movie={PeliculaFavorita} img = {PeliculaFavorita.poster_path}/>)}
 
-                                </React.Fragment>
+                                </section>
                             }
 
                         </>
                         }
 
                 </React.Fragment>
-            </section>
         )
     }
 }
