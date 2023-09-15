@@ -20,7 +20,7 @@ class VerPopulares extends Component{
     }
     filtrarPeliculas(peliculaAFiltrar){
         let peliculasFiltradas = this.state.populares.filter(function(unaPelicula){
-             return peliculaAFiltrar.includes(unaPelicula.title)
+             return unaPelicula.title.includes(peliculaAFiltrar)
         })
 
         this.setState({
@@ -36,10 +36,11 @@ class VerPopulares extends Component{
                     return <Card key={unaPelicula.id} datosPelicula={unaPelicula}/>
                 }) 
             } */}
-            <h1 className="ultimo">Peliculas populares</h1>  <Filtro filtrar={(texto) => this.filtrarPeliculas(texto)}/>
+            <h1 className="ultimo"> Peliculas populares </h1>  
+                <Filtro filtrar={(texto) => this.filtrarPeliculas(texto)}/>
             <section className="imagen">
                 {this.state.populares.length > 0 ?(
-                this.state.populares.slice(0,20).map((movie)=><Card movie={movie}/>)
+                this.state.populares.slice(0,20).map((movie)=><Card movie = { movie }/>)
             ):(
                 <p className='cargando'>Cargando...</p>
             )}
