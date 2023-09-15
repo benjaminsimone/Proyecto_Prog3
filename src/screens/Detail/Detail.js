@@ -36,7 +36,7 @@ class Detail extends Component {
                 <h2> Rating: {this.state.detailMovie.vote_average}</h2>
                 <h2> {this.state.detailMovie.overview}</h2>
                 <h2> Duracion : {this.state.detailMovie.runtime} mins </h2> 
-                <h2> Genero : {this.state.detailMovie.genres.map((genre,idx)=> <li key = {genre + idx}> {genre.name}</li>)}</h2> 
+                <h2> Genero : {this.state.detailMovie.genre[0].name}</h2> 
                 <button onClick={()=>this.favoritos(this.state.detailMovie.id)} type='button'>{this.state.botonFavs}</button>
 
 

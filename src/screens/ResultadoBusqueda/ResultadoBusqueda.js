@@ -20,15 +20,31 @@ class ResultadoBusqueda extends Component {
 
     render() {
         return (
-            
-            
+
+
             <React.Fragment>
 
                 <h1 className="titulos"> Resultado de busqueda </h1>
-                <h2 className="ultimo" >       Peliculas       </h2>
-                <section className="imagen">
-                    {this.state.resultadosTotales.map((elemento, index) => <Card key={elemento = index} movie={elemento} />)}
-                </section>
+                <React.Fragment>
+
+                    <h1 className="ultimo" >       Peliculas       </h1>
+                </React.Fragment>
+                {
+                    this.state.resultadosTotales.length !== 0 ?
+                        <React.Fragment>
+                            <section className="imagen">
+
+                                {this.state.resultadosTotales.map((elemento, index) => <Card key={elemento = index} movie={elemento} />)}
+                            </section>
+
+                        </React.Fragment>
+                        : <>
+                            <React.Fragment>
+                                <h1> No hay resultados en tu busqueda: {this.props.match.params.search} </h1>
+                            </React.Fragment>
+                        </>
+
+                }
 
             </React.Fragment>
         )
