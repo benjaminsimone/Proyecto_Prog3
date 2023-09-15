@@ -1,7 +1,6 @@
 import React from "react";
 import './Header.css'
 import { Link } from 'react-router-dom';
-import ResultadoBusqueda from "../../screens/ResultadoBusqueda/ResultadoBusqueda";
 import Formulario from "../Formulario/Formularios";
 
 

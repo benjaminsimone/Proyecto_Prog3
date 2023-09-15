@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import Card from "../../components/Card/Card";
 import './Detail.css'
 
 class Detail extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            detailMovie: []
+            detailMovie: [],
+            botonFavs: "Argegar a favoritos",
+            generos : []
         }
     }
 
@@ -15,7 +16,11 @@ class Detail extends Component {
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=ac76fd343a62a48054382d87b2a93a32`)
             .then(res => res.json())
             .then(data => this.setState(
-                { detailMovie: data }))
+                { detailMovie: data },
+                { generos : data.genres.map (genres => genres.name) }
+            
+                ))
+
             .catch(e => console.log(e))
 
     }
@@ -31,7 +36,9 @@ class Detail extends Component {
                 <h2> Rating: {this.state.detailMovie.vote_average}</h2>
                 <h2> {this.state.detailMovie.overview}</h2>
                 <h2> Duracion : {this.state.detailMovie.runtime} mins </h2> 
-                <h2>  {this.state.detailMovie.runtime}  </h2>
+                <h2> Genero : {this.state.detailMovie.genres.map((genre,idx)=> <li key = {genre + idx}> {genre.name}</li>)}</h2> 
+                <button onClick={()=>this.favoritos(this.state.detailMovie.id)} type='button'>{this.state.botonFavs}</button>
+
 
             </React.Fragment>
 
@@ -42,45 +49,3 @@ class Detail extends Component {
 
 export default Detail; 
 
-// import React, { Component } from "react";
-// import Card from "../../components/Card/Card";
-// import './Detail.css'
-
-// class Detail extends Component {
-//     constructor(props) {
-//         super(props)
-//         this.state = {
-//             detailMovie: []
-//         }
-//     }
-
-//     componentDidMount() {
-//         const id = this.props.match.params.id;
-//         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=ac76fd343a62a48054382d87b2a93a32`)
-//             .then(res => res.json())
-//             .then(data => this.setState({ detailMovie: data }))
-//             .catch(e => console.log(e))
-//     }
-
-//     render() {
-//         const { title, poster_path, overview, genres, release_date, vote_average } = this.state.detailMovie;
-
-//         return (
-//             <section>
-//                 <div className="descripcion">
-//                     {title && poster_path && (
-//                         <Card title={this.state.detailMovie.title} posterPath={this.state.detailMovie.poster_path} />
-//                     )}
-//                     <h2>{this.state.detailMovie.overview}</h2>
-//                     {genres && (
-//                         <h2>Genres: {this.state.detailMovie.genres.map(genre => genre.name).join(", ")}</h2>
-//                     )}
-//                     <h2>Release Date: {this.state.detailMovie.release_date}</h2>
-//                     <h2>Vote Average: {this.state.detailMovie.vote_average}</h2>
-//                 </div>
-//             </section>
-//         )
-//     }
-// }
-
-// export default Detail;

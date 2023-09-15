@@ -36,7 +36,7 @@ class Favoritos extends Component {
             <React.Fragment>
                 <h1>Tus Favoritos</h1>
                 <div>
-                    {this.state.arrayFavoritos.map((PeliculaFavorita, idx)=> <Card key={PeliculaFavorita.id} infoPelicula={PeliculaFavorita}/>)}
+                    {this.state.arrayFavoritos.map((PeliculaFavorita, idx)=> <Card key={PeliculaFavorita.id} movie={PeliculaFavorita}/>)}
                 </div>
             </React.Fragment>
         )

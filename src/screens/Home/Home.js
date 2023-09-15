@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import Card from "../../components/Card/Card";
 import './Home.css'
-import Filtro from '../Filtro/Filtro';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 
@@ -51,7 +50,7 @@ class Home extends Component {
                 {this.state.populares.length > 0 ?(
                 this.state.populares.slice(0,4).map((movie)=><Card movie={movie}/>)
             ):(
-                <img src='/Users/benjamin/Documents/UdeSA/PROG III/Programacion 3/ProyectoInt/public/img/Loading.gif'/>,
+                <img src='/Users/benjamin/Documents/UdeSA/PROG III/Programacion 3/ProyectoInt/public/img/Loading.gif' alt=''/>,
                 <p className='cargando'>Cargando...</p>
             )}
             </section>
