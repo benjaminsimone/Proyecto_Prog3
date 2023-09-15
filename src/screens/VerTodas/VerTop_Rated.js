@@ -37,7 +37,7 @@ class VerTop_Rated extends Component{
                     return <Card key={unaPelicula.id} datosPelicula={unaPelicula}/>
                 }) 
             } */}
-            <h1 className="ultimo">Peliculas más valoradas</h1> 
+            <h1 className="ultimo"> Peliculas más valoradas </h1> 
             <section className="imagen">
                 {this.state.top_rated.length > 0 ?(
                 this.state.top_rated.slice(0,20).map((movie)=><Card movie={movie}/>)

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Card from "../../components/Card/Card";
-import Detail from "../Detail/Detail";
 
 
 class Favoritos extends Component {
@@ -48,7 +47,7 @@ class Favoritos extends Component {
                             {
                                 <React.Fragment>
 
-                                    {this.state.arrayFavoritos.map((PeliculaFavorita, idx) => <Card key={PeliculaFavorita + idx} movie={PeliculaFavorita}/>)}
+                                    {this.state.arrayFavoritos.map((PeliculaFavorita, idx) => <Card key={PeliculaFavorita + idx} movie={PeliculaFavorita} img = {PeliculaFavorita.poster_path}/>)}
 
                                 </React.Fragment>
                             }

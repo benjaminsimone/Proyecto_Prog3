@@ -27,7 +27,7 @@ class Formulario extends Component {
                 <form onSubmit={(evento) => this.preventDefault(evento)} className='form'>
 
                     <input type="text" onChange={(evento) => this.controDeCambios(evento) } id="input" placeholder="Buscar en DH Movies" className="buscador" name = "search" value = {this.state.valor}/> {/*completar con el link correspondiente */}
-                    <Link to = { `/resultadoBusqueda/${this.state.valor}`}><img src="./img/lupa.png" alt="" className="lupa"/> </Link>
+                    <Link to = {`/ResultadoBusqueda/${this.state.valor}`}><img src="./img/lupa.png" alt="" className="lupa"/> </Link>
                         
                 </form>
         )

@@ -2,6 +2,7 @@ import './VerTodas.css'
 import React,{Component} from 'react';
 import Card from '../../components/Card/Card';
 import Filtro from '../Filtro/Filtro';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 class VerPopulares extends Component{
     constructor(props){
@@ -36,8 +37,9 @@ class VerPopulares extends Component{
                     return <Card key={unaPelicula.id} datosPelicula={unaPelicula}/>
                 }) 
             } */}
-            <h1 className="ultimo"> Peliculas populares </h1>  
-                <Filtro filtrar={(texto) => this.filtrarPeliculas(texto)}/>
+            <h1 className="ultimo"> Peliculas populares </h1> 
+            <Link to = {`/VerPopulares/${this.state.valor}`}><Filtro filtrar={(texto) => this.filtrarPeliculas(texto)}/><img src="./img/lupa.png" alt="" className="lupa"/> </Link> 
+                
             <section className="imagen">
                 {this.state.populares.length > 0 ?(
                 this.state.populares.slice(0,20).map((movie)=><Card movie = { movie }/>)
