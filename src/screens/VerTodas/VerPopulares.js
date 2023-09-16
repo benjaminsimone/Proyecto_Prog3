@@ -1,52 +1,68 @@
 import './VerTodas.css'
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import Card from '../../components/Card/Card';
 import Filtro from '../Filtro/Filtro';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
-class VerPopulares extends Component{
-    constructor(props){
+class VerPopulares extends Component {
+    constructor(props) {
         super(props)
         this.state = {
-            populares:[]
+            populares: [],
+            pagina: 1,
+            index: 10
         }
 
     }
-    componentDidMount(){
-        
-        fetch('https://api.themoviedb.org/3/movie/popular?api_key=ac76fd343a62a48054382d87b2a93a32')
-            .then(res =>res.json()) 
-        .then(data=>this.setState({populares:data.results}))
-        .catch(e=> console.log(e))
+    componentDidMount() {
+        this.variasPelis()
     }
-    filtrarPeliculas(peliculaAFiltrar){
-        let peliculasFiltradas = this.state.populares.filter(function(unaPelicula){
-             return unaPelicula.title.includes(peliculaAFiltrar)
+
+    variasPelis() {
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=ac76fd343a62a48054382d87b2a93a32&page=${this.state.pagina}`)
+            .then(res => res.json())
+            .then(data => this.setState(
+                {
+                    populares: data.results,
+                    pagina: this.state.pagina + 1
+                }
+
+            ))
+            .catch(e => console.log(e))
+    }
+
+
+
+    filtrarPeliculas(peliculaAFiltrar) {
+        let peliculasFiltradas = this.state.populares.filter(function (unaPelicula) {
+            return unaPelicula.title.includes(peliculaAFiltrar)
         })
 
         this.setState({
             populares: peliculasFiltradas
         })
     }
-    render(){
-        return(
+
+    otrasPeliculas() {
+        this.setState({
+            idx: this.state.idx + 5
+        })
+        this.variasPelis()
+    }
+    render() {
+        return (
             <React.Fragment>
-                
-            {/* {
+
+                {/* {
                 this.state.populares.map(function(unaPelicula){
                     return <Card key={unaPelicula.id} datosPelicula={unaPelicula}/>
                 }) 
             } */}
-            <h1 className="ultimo"> Peliculas populares </h1> 
-            <Link to = {`/VerPopulares/${this.state.valor}`}><Filtro filtrar={(texto) => this.filtrarPeliculas(texto)}/><img src="./img/lupa.png" alt="" className="lupa"/> </Link> 
+                <h1 className="ultimo"> Peliculas populares </h1>
+                <button onClick={() => this.otrasPeliculas(this.state.populares)}>Ver más peliculas populares</button>
+                <Link to={`/VerPopulares/${this.state.valor}`}><Filtro filtrar={(texto) => this.filtrarPeliculas(texto)} /><img src="./img/lupa.png" alt="" className="lupa" /> </Link>
+
                 
-            <section className="imagen">
-                {this.state.populares.length > 0 ?(
-                this.state.populares.slice(0,20).map((movie)=><Card movie = { movie }/>)
-            ):(
-                <p className='cargando'>Cargando...</p>
-            )}
-            </section>
             </React.Fragment>
 
 

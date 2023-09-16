@@ -6,7 +6,7 @@ class Detail extends Component {
         super(props)
         this.state = {
             detailMovie: [],
-            
+            genres:[],
         }
     }
 
@@ -18,7 +18,9 @@ class Detail extends Component {
 
             .then(data => this.setState(
 
-                { detailMovie: data }
+                { detailMovie: data,
+                genres: data.genres.map(genre => genre.name)
+                }
             ))
 
             .catch(e => console.log(e))
@@ -28,7 +30,7 @@ class Detail extends Component {
 
 
         render() {
-
+            console.log(this.state.generos)
             return (
 
                 <React.Fragment>
@@ -39,7 +41,7 @@ class Detail extends Component {
                     <h2> Rating: {this.state.detailMovie.vote_average}</h2>
                     <h2> {this.state.detailMovie.overview}</h2>
                     <h2> Duracion : {this.state.detailMovie.runtime} mins </h2>
-                    <h2> Genero :  </h2>
+                    <h2> Genero : {this.state.genres.join(', ')} </h2>
                     
                     
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Card from "../../components/Card/Card";
+import "./Favoritos.css"
 
 
 class Favoritos extends Component {
@@ -19,7 +20,7 @@ class Favoritos extends Component {
         
             favoritos.forEach((id) => {
             
-                fetch(`https://api.themoviedb.org/3/movie/top_rated?${id}api_key=ac76fd343a62a48054382d87b2a93a32`)
+                fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=ac76fd343a62a48054382d87b2a93a32`)
                     .then((response) => response.json())
                     .then((favoritos) => {
                         listaPeliculas.push(favoritos)
@@ -34,6 +35,7 @@ class Favoritos extends Component {
     }
 
     render() {
+        console.log(this.state.arrayFavoritos)
         return (
                 <React.Fragment>
 
@@ -45,7 +47,7 @@ class Favoritos extends Component {
                         :
                         <>
                             {
-                                <section>
+                                <section className="imagen">
 
                                     {this.state.arrayFavoritos.map((PeliculaFavorita, idx) => <Card key={PeliculaFavorita + idx} movie={PeliculaFavorita} img = {PeliculaFavorita.poster_path}/>)}
 
