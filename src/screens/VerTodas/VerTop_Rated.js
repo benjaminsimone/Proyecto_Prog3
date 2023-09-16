@@ -34,7 +34,7 @@ class VerTop_Rated extends Component{
 
     filtrarPeliculas(peliculaAFiltrar){
         let peliculasFiltradas = this.state.top_rated.filter(function(unaPelicula){
-             return peliculaAFiltrar.includes(unaPelicula.title)
+             return peliculaAFiltrar.includes(peliculaAFiltrar)
         })
 
         this.setState({

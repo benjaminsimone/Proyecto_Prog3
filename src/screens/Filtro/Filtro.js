@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 class Filtro extends Component{
 
     constructor(props){
-        super(props );
+        super(props);
         this.state = {
-            valorIngresado: ''
+            busquedaIngresada: ''
         }
     }
 

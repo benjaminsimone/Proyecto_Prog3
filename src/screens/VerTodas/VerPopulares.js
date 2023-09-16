@@ -60,7 +60,20 @@ class VerPopulares extends Component {
             } */}
                 <h1 className="ultimo"> Peliculas populares </h1>
                 <button onClick={() => this.otrasPeliculas(this.state.populares)}>Ver más peliculas populares</button>
-                <Link to={`/VerPopulares/${this.state.valor}`}><Filtro filtrar={(texto) => this.filtrarPeliculas(texto)} /><img src="./img/lupa.png" alt="" className="lupa" /> </Link>
+                <Filtro filtrar={(busqueda) => this.filtros(busqueda)} />
+                <section className="imagen">
+                    {this.state.populares.length > 0 ? (
+
+                        this.state.populares.map((movie, indice) => {
+                            if (indice < this.state.index) {
+                                return (
+                                    <Card movie={movie} />
+                                )
+                            } return null
+                        })
+
+                    ): (<p className='cargando'>Cargando...</p>)}
+                </section>
 
                 
             </React.Fragment>
